@@ -6,7 +6,8 @@ const socketIo = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-totalCount = 0;
+const PORT = process.env.PORT || 3000;
+let totalCount = 0;
 
 app.use(express.static('public'));
 
@@ -23,5 +24,5 @@ io.on("connection", (socket) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
